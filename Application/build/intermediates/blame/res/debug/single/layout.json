@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_device_list.xml",
+        "source": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\src\\main\\res\\layout\\activity_device_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\message.xml",
+        "source": "C:\\Users\\gustav\\Chewie\\Application\\src\\main\\res\\layout\\message.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\buttons.xml",
+        "source": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\src\\main\\res\\layout\\buttons.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\message.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\src\\main\\res\\layout\\message.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
+        "source": "C:\\Users\\gustav\\Chewie\\Application\\src\\main\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_device_list.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\src\\main\\res\\layout\\activity_device_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\src\\main\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bluetooth_chat.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\src\\main\\res\\layout\\fragment_bluetooth_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\buttons.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\src\\main\\res\\layout\\buttons.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\gustav\\Chewie\\Application\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\message.xml",
+        "source": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\src\\main\\res\\layout\\message.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\src\\main\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\buttons.xml",
+        "source": "C:\\Users\\gustav\\Chewie\\Application\\src\\main\\res\\layout\\buttons.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\device_name.xml",
+        "source": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\src\\main\\res\\layout\\device_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_device_list.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BustelControl\\BluetoothChat\\Application\\src\\main\\res\\layout\\activity_device_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\message.xml",
+        "source": "C:\\Users\\gustav\\Documents\\Bustel\\RaspberryTester\\BluetoothChatAndroid\\BluetoothChat\\Application\\src\\main\\res\\layout\\message.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\gustav\\AndroidStudioProjects\\Chewie\\Application\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_device_list.xml",
+        "source": "C:\\Users\\gustav\\Chewie\\Application\\src\\main\\res\\layout\\activity_device_list.xml"
+    }
+]

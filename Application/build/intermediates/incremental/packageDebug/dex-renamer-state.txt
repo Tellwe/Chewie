@@ -1,0 +1,7 @@
+#Tue Jan 03 12:35:57 CET 2017
+base.0=C\:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_05bab4cf6341608fb8e133e673b8c8d7767be44b
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f29846032c28f388c7fffa41f7d18e6e53cdff61\\classes.dex
+base.1=C\:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f29846032c28f388c7fffa41f7d18e6e53cdff61
+file.0=C\:\\Users\\gustav\\Chewie\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_05bab4cf6341608fb8e133e673b8c8d7767be44b\\classes.dex
