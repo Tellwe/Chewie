@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="25"
-    density="560dpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="23"
+    density="hdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="448896745821998"
-    token="1165008530373144725"
-    verifier="FULL_BUILD_REQUESTED" >
+    timestamp="92695925096044"
+    token="1540765620798473552"
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="714" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="118" />
     <task
         name="verifier"
-        duration="0" />
+        duration="19" />
 
     <artifact
-        location="C:\Users\gustav\Chewie\Application\build\outputs\apk\Application-debug.apk"
-        type="MAIN" />
+        location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="448896745821998"
+        timestamp="91163572606864"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\gustav\Chewie\Application\build\outputs\apk\Application-debug.apk"
+            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\outputs\apk\Application-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="92695925096044"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="200280363949333"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\outputs\apk\Application-debug.apk"
             type="MAIN" />
     </build>
 

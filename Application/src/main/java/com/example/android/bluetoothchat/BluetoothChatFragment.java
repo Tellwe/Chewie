@@ -27,6 +27,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -60,6 +61,9 @@ public class BluetoothChatFragment extends Fragment {
     private ListView mConversationView;
     private EditText mOutEditText;
     private Button mFlashButton;
+    private Button mLightButton;
+    private Button mN1FlashButton;
+    private Button mN2FlashButton;
 
     /**
      * Name of the connected device
@@ -151,6 +155,9 @@ public class BluetoothChatFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         mFlashButton = (Button) view.findViewById(R.id.flashButton);
+        mLightButton = (Button) view.findViewById(R.id.lightButton);
+        mN1FlashButton = (Button) view.findViewById(R.id.N1FlashButton);
+        mN2FlashButton = (Button) view.findViewById(R.id.N2FlashButton);
     }
 
     /**
@@ -172,9 +179,37 @@ public class BluetoothChatFragment extends Fragment {
         mFlashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Send a message using content of the edit text widget
+                Log.d("CREATION", "habba habba");
                 View view = getView();
                 if (null != view) {
                     sendMessage("Flash");
+                }
+            }
+        });
+        mLightButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Send a message using content of the edit text widget
+                View view = getView();
+                if (null != view) {
+                    sendMessage("Light");
+                }
+            }
+        });
+        mN1FlashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Send a message using content of the edit text widget
+                View view = getView();
+                if (null != view) {
+                    sendMessage("N1Flash");
+                }
+            }
+        });
+        mN2FlashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Send a message using content of the edit text widget
+                View view = getView();
+                if (null != view) {
+                    sendMessage("N2Flash");
                 }
             }
         });

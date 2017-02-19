@@ -24,6 +24,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 //import com.example.android.common.logger.Log;
 
@@ -459,6 +460,7 @@ public class BluetoothChatService {
             // Get the BluetoothSocket input and output streams
             try {
                 tmpIn = socket.getInputStream();
+
                 tmpOut = socket.getOutputStream();
             } catch (IOException e) {
                 //Log.e(TAG, "temp sockets not created", e);
@@ -473,11 +475,14 @@ public class BluetoothChatService {
             byte[] buffer = new byte[1024];
             int bytes;
 
+
             // Keep listening to the InputStream while connected
             while (mState == STATE_CONNECTED) {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
+
+                    Log.d("CREATION", String.valueOf(bytes));
 
                     // Send the obtained bytes to the UI Activity
                     mHandler.obtainMessage(Constants.MESSAGE_READ, bytes, -1, buffer)
