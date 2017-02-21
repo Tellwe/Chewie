@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="black" type="color">#000000</item>
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="darkblue" type="color">#FF0099CC</item>
+    <item name="darkgreen" type="color">#FF669900</item>
+    <item name="darkorange" type="color">#FFFF8800</item>
+    <item name="darkpurple" type="color">#FF9933CC</item>
+    <item name="darkred" type="color">#FFCC0000</item>
+    <item name="green" type="color">#aad400</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="purple" type="color">#FFAA66CC</item>
+    <item name="red" type="color">#FFFF4444</item>
+    <item name="white" type="color">#ffffff</item>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
     <style name="Base.TextAppearance.AppCompat.Body2" parent="android:TextAppearance.Material.Body2"/>
@@ -56,7 +68,7 @@
     <style name="Base.Theme.AppCompat.Light" parent="Base.V21.Theme.AppCompat.Light"/>
     <style name="Base.Theme.AppCompat.Light.Dialog" parent="Base.V21.Theme.AppCompat.Light.Dialog"/>
     <style name="Base.V21.Theme.AppCompat" parent="Base.V7.Theme.AppCompat">
-        <!-- Action Bar styling attributes -->
+        
         <item name="actionBarSize">?android:attr/actionBarSize</item>
         <item name="actionBarDivider">?android:attr/actionBarDivider</item>
         <item name="actionBarItemBackground">@drawable/abc_action_bar_item_background_material</item>
@@ -66,12 +78,12 @@
         <item name="actionOverflowButtonStyle">?android:attr/actionOverflowButtonStyle</item>
         <item name="homeAsUpIndicator">?android:attr/homeAsUpIndicator</item>
 
-        <!-- For PopupMenu -->
+        
         <item name="listPreferredItemHeightSmall">?android:attr/listPreferredItemHeightSmall</item>
         <item name="textAppearanceLargePopupMenu">?android:attr/textAppearanceLargePopupMenu</item>
         <item name="textAppearanceSmallPopupMenu">?android:attr/textAppearanceSmallPopupMenu</item>
 
-        <!-- General view attributes -->
+        
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
         <item name="borderlessButtonStyle">?android:borderlessButtonStyle</item>
@@ -81,7 +93,7 @@
         <item name="editTextColor">?android:attr/editTextColor</item>
         <item name="listChoiceBackgroundIndicator">?android:attr/listChoiceBackgroundIndicator</item>
 
-        <!-- Copy the platform default styles for the AppCompat widgets -->
+        
         <item name="buttonStyle">?android:attr/buttonStyle</item>
         <item name="buttonStyleSmall">?android:attr/buttonStyleSmall</item>
         <item name="checkboxStyle">?android:attr/checkboxStyle</item>
@@ -90,7 +102,7 @@
         <item name="ratingBarStyle">?android:attr/ratingBarStyle</item>
         <item name="spinnerStyle">?android:attr/spinnerStyle</item>
 
-        <!-- Copy our color theme attributes to the framework -->
+        
         <item name="android:colorPrimary">?attr/colorPrimary</item>
         <item name="android:colorPrimaryDark">?attr/colorPrimaryDark</item>
         <item name="android:colorAccent">?attr/colorAccent</item>
@@ -103,7 +115,7 @@
         <item name="android:windowElevation">@dimen/abc_floating_window_z</item>
     </style>
     <style name="Base.V21.Theme.AppCompat.Light" parent="Base.V7.Theme.AppCompat.Light">
-        <!-- Action Bar styling attributes -->
+        
         <item name="actionBarSize">?android:attr/actionBarSize</item>
         <item name="actionBarDivider">?android:attr/actionBarDivider</item>
         <item name="actionBarItemBackground">@drawable/abc_action_bar_item_background_material</item>
@@ -113,12 +125,12 @@
         <item name="actionOverflowButtonStyle">?android:attr/actionOverflowButtonStyle</item>
         <item name="homeAsUpIndicator">?android:attr/homeAsUpIndicator</item>
 
-        <!-- For PopupMenu -->
+        
         <item name="listPreferredItemHeightSmall">?android:attr/listPreferredItemHeightSmall</item>
         <item name="textAppearanceLargePopupMenu">?android:attr/textAppearanceLargePopupMenu</item>
         <item name="textAppearanceSmallPopupMenu">?android:attr/textAppearanceSmallPopupMenu</item>
 
-        <!-- General view attributes -->
+        
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
         <item name="borderlessButtonStyle">?android:borderlessButtonStyle</item>
@@ -128,7 +140,7 @@
         <item name="editTextColor">?android:attr/editTextColor</item>
         <item name="listChoiceBackgroundIndicator">?android:attr/listChoiceBackgroundIndicator</item>
 
-        <!-- Copy the platform default styles for the AppCompat widgets -->
+        
         <item name="buttonStyle">?android:attr/buttonStyle</item>
         <item name="buttonStyleSmall">?android:attr/buttonStyleSmall</item>
         <item name="checkboxStyle">?android:attr/checkboxStyle</item>
@@ -137,7 +149,7 @@
         <item name="ratingBarStyle">?android:attr/ratingBarStyle</item>
         <item name="spinnerStyle">?android:attr/spinnerStyle</item>
 
-        <!-- Copy our color theme attributes to the framework -->
+        
         <item name="android:colorPrimary">?attr/colorPrimary</item>
         <item name="android:colorPrimaryDark">?attr/colorPrimaryDark</item>
         <item name="android:colorAccent">?attr/colorAccent</item>
@@ -229,7 +241,7 @@
         <item name="android:buttonBarButtonStyle">?attr/buttonBarButtonStyle</item>
     </style>
     <style name="Platform.ThemeOverlay.AppCompat" parent="">
-        <!-- Copy our color theme attributes to the framework -->
+        
         <item name="android:colorPrimary">?attr/colorPrimary</item>
         <item name="android:colorPrimaryDark">?attr/colorPrimaryDark</item>
         <item name="android:colorAccent">?attr/colorAccent</item>

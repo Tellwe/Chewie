@@ -3,26 +3,36 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <Button android:id="@+id/flashButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Flash" />
+        android:background="@drawable/custom_button"
+        android:textColor="@drawable/text_color"
+        android:text="Flash"
+        android:layout_margin="10sp"/>
 
     <Button android:id="@+id/lightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Light" />
+        android:background="@drawable/custom_button"
+        android:textColor="@drawable/text_color"
+        android:text="Light"
+        android:layout_margin="10sp"/>
 
     <Button android:id="@+id/N1FlashButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Node 1 flash cycle" />
+        android:background="@drawable/custom_button"
+        android:textColor="@drawable/text_color"
+        android:text="Node 1 flash cycle"
+        android:layout_margin="10sp"/>
 
     <Button android:id="@+id/N2FlashButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Node 2 flash cycle" />
-
-
+        android:text="Node 2 flash cycle"
+        android:background="@drawable/custom_button"
+        android:textColor="@drawable/text_color"
+        android:layout_margin="10sp"/>
+    
 </LinearLayout>

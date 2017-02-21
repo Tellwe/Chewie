@@ -55,6 +55,7 @@ android {
                 java.srcDirs "src/${dir}/java"
                 res.srcDirs "src/${dir}/res"
             }
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
         androidTest.setRoot('tests')
         androidTest.java.srcDirs = ['tests/src']
