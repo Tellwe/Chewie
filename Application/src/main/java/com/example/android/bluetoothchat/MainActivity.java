@@ -19,6 +19,7 @@ package com.example.android.bluetoothchat;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
@@ -26,9 +27,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.ToggleButton;
 import android.widget.ViewAnimator;
 
 import com.example.android.common.activities.SampleActivityBase;
+
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 //import com.example.android.common.logger.Log;
 //import com.example.android.common.logger.LogFragment;
 //import com.example.android.common.logger.LogWrapper;
@@ -47,12 +52,13 @@ public class MainActivity extends SampleActivityBase {
 
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
+    private boolean firstCheck = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        super.setupUI(findViewById(R.id.sample_main_layout));
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             BluetoothChatFragment fragment = new BluetoothChatFragment();
@@ -95,7 +101,26 @@ public class MainActivity extends SampleActivityBase {
     }
     public void displayGraphs(View view) {
         Intent intent = new Intent(this, GraphActivity.class);
+        intent.setFlags(intent.getFlags() | FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
+    }
+    public void switchToggle(View view)
+    {
+
+        RadioButton tmp = (RadioButton) view;
+        if(firstCheck) {
+            firstCheck = false;
+        }
+        else {
+            tmp.setChecked(false);
+            firstCheck = true;
+        }
+
+
+    }
+    public void updateLightsensorvalue(View view)
+    {
+
     }
 
 

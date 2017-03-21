@@ -18,7 +18,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/sample_main_layout">
+    android:id="@+id/sample_main_layout"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
 
@@ -32,28 +34,7 @@
         android:textSize="50sp"
         android:gravity="center"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0"
-        android:padding="10sp">
-        <com.example.android.bluetoothchat.UnderlinedTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/messagefield"
-            android:textSize="35sp"
-            Application:underlineColor="@color/green"
-            Application:underlineWidth="1dp"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:text="Felmedelanden"
-            android:textColor="#FF0000"
-            android:background="#B0B0B0"/>
 
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/sample_content_fragment"
         android:orientation="vertical"
@@ -70,116 +51,8 @@
             Application:underlineColor="@color/green"
             Application:underlineWidth="1dp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0"
-        android:padding="10sp">
-        <com.example.android.bluetoothchat.UnderlinedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ljussensorvärde"
-            android:textSize="35sp"
-            Application:underlineColor="@color/green"
-            Application:underlineWidth="1dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10sp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Potensiometervärde"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0-255"
-                android:textSize="20sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10sp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="programmerat värde"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0-255"
-                android:textSize="20sp"/>
-        </LinearLayout>
 
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:padding="10sp">
-        <com.example.android.bluetoothchat.UnderlinedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/data"
-            android:textSize="35sp"
-            Application:underlineColor="@color/green"
-            Application:underlineWidth="1dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hämta data"
-                android:background="@drawable/custom_button"
-                android:textColor="@drawable/text_color"
-                android:layout_margin="10sp"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Visa Grafer"
-                android:onClick="displayGraphs"
-                android:background="@drawable/custom_button"
-                android:textColor="@drawable/text_color"
-                android:layout_margin="10sp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center|bottom"
-        android:layout_weight="0">
-        <com.example.android.bluetoothchat.UnderlinedTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/values"
-            android:textSize="35sp"
-            Application:underlineColor="@color/green"
-            Application:underlineWidth="1dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/PIRValue"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sensValue"/>
-        </LinearLayout>
-    </LinearLayout>
     <ImageView
         android:id="@+id/phone_icon"
         android:layout_width="500sp"

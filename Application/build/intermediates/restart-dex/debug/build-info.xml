@@ -5,13 +5,13 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="69363320407830"
+    timestamp="167452616330695"
     token="1540765620798473552"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="2893" />
     <task
         name="instant-run-dex"
         duration="0" />
@@ -23,39 +23,11 @@
         duration="0" />
 
     <artifact
-        location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
+        location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\outputs\apk\Application-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="60445855555937"
-        verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\outputs\apk\Application-debug.apk"
-            type="MAIN" />
-    </build>
-    <build
-        timestamp="61500103348361"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="68893881806830"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="69296270681574"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
-    </build>
-    <build
-        timestamp="200280363949333"
+        timestamp="945458348501841"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\gustav\AndroidStudioProjects\Chewie\Application\build\outputs\apk\Application-debug.apk"

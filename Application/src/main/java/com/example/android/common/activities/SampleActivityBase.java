@@ -16,8 +16,16 @@
 
 package com.example.android.common.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
+import com.example.android.bluetoothchat.MainActivity;
 
 //import com.example.android.common.logger.Log;
 //import com.example.android.common.logger.LogWrapper;
@@ -39,7 +47,37 @@ public class SampleActivityBase extends FragmentActivity {
         super.onStart();
         //initializeLogging();
     }
+    public void setupUI(View view) {
 
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(SampleActivityBase.this);
+                    return false;
+                }
+            });
+        }
+        if(view instanceof EditText){
+            EditText tmp = (EditText) view;
+            tmp.setCursorVisible(false);
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
     /** Set up targets to receive log data */
     /*
     public void initializeLogging() {

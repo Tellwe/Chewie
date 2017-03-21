@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.TextView;
 
 //import com.example.android.common.logger.Log;
 
@@ -52,7 +53,7 @@ public class BluetoothChatService {
     private static final UUID MY_UUID_SECURE =
             UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee");
     private static final UUID MY_UUID_INSECURE =
-            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+            UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee");
 
     // Member fields
     private final BluetoothAdapter mAdapter;
@@ -69,6 +70,7 @@ public class BluetoothChatService {
     public static final int STATE_CONNECTING = 2; // now initiating an outgoing connection
     public static final int STATE_CONNECTED = 3;  // now connected to a remote device
 
+
     /**
      * Constructor. Prepares a new BluetoothChat session.
      *
@@ -78,6 +80,8 @@ public class BluetoothChatService {
     public BluetoothChatService(Context context, Handler handler) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = STATE_NONE;
+        if(mState == STATE_NONE)
+            Log.d("CREATION", "None");
         mHandler = handler;
     }
 
@@ -87,7 +91,7 @@ public class BluetoothChatService {
      * @param state An integer defining the current connection state
      */
     private synchronized void setState(int state) {
-        //Log.d(TAG, "setState() " + mState + " -> " + state);
+        Log.d("CREATION", Integer.toString(state));
         mState = state;
 
         // Give the new state to the Handler so the UI Activity can update
@@ -196,6 +200,8 @@ public class BluetoothChatService {
 
         // Start the thread to manage the connection and perform transmissions
         mConnectedThread = new ConnectedThread(socket, socketType);
+        setState(STATE_CONNECTED);
+
         mConnectedThread.start();
 
         // Send the name of the connected device back to the UI Activity
@@ -379,6 +385,7 @@ public class BluetoothChatService {
         private final BluetoothDevice mmDevice;
         private String mSocketType;
 
+
         public ConnectThread(BluetoothDevice device, boolean secure) {
             mmDevice = device;
             BluetoothSocket tmp = null;
@@ -450,9 +457,10 @@ public class BluetoothChatService {
         private final BluetoothSocket mmSocket;
         private final InputStream mmInStream;
         private final OutputStream mmOutStream;
+        private TextView messageView;
 
         public ConnectedThread(BluetoothSocket socket, String socketType) {
-            //Log.d(TAG, "create ConnectedThread: " + socketType);
+            Log.d(TAG, "create ConnectedThread: " + socketType);
             mmSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
@@ -471,24 +479,28 @@ public class BluetoothChatService {
         }
 
         public void run() {
-            //Log.i(TAG, "BEGIN mConnectedThread");
+            Log.i(TAG, "BEGIN mConnectedThread");
             byte[] buffer = new byte[1024];
             int bytes;
 
 
+
+            Log.d("CREATION", "run");
             // Keep listening to the InputStream while connected
             while (mState == STATE_CONNECTED) {
                 try {
                     // Read from the InputStream
+
                     bytes = mmInStream.read(buffer);
 
-                    Log.d("CREATION", String.valueOf(bytes));
+                    //Log.d("CREATION", String.valueOf(bytes));
+
 
                     // Send the obtained bytes to the UI Activity
                     mHandler.obtainMessage(Constants.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
                 } catch (IOException e) {
-                    //Log.e(TAG, "disconnected", e);
+                    Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
                     BluetoothChatService.this.start();
