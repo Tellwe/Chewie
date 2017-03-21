@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
- * Created by gustav on 2017-02-21.
+ * Class for making the underline headers in the UI
  */
 
 public class UnderlinedTextView extends TextView {

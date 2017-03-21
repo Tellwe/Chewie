@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2014 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 package com.example.android.bluetoothchat;
 
@@ -27,7 +12,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,24 +23,14 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-//import com.example.android.common.logger.Log;
-
 /**
  * This fragment controls Bluetooth to communicate with other devices.
  */
 public class BluetoothChatFragment extends Fragment {
-
-    private static final String TAG = "BluetoothChatFragment";
 
     // Intent request codes
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
@@ -64,23 +38,22 @@ public class BluetoothChatFragment extends Fragment {
     private static final int REQUEST_ENABLE_BT = 3;
 
     // Layout Views
-    private ListView mConversationView;
-    private EditText mOutEditText;
     private Button mFlashButton;
     private Button mLightButton;
     private Button mN1FlashButton;
     private Button mN2FlashButton;
-    private Button uppdateLightSensorValuesButton;
+    private Button updateLightSensorValuesButton;
+    private Button downloadDataButton;
+
     private TextView messageView;
     private TextView lightSensorValueView;
     private TextView potSensorValueView;
-    private Button downloadDataButton;
+
     private ToggleButton progPotToggleButton;
+
     private EditText progValueEditText;
-    public ArrayList<int[]> dataList = new ArrayList<int[]>();
-    public ArrayList<Integer> dataStream = new ArrayList<Integer>();
-    private int counter = 0;
-    private int[] dataPoint = new int[10];
+
+    public ArrayList<Integer> dataStream = new ArrayList<>();
 
     /**
      * Name of the connected device
@@ -175,12 +148,15 @@ public class BluetoothChatFragment extends Fragment {
         mLightButton = (Button) view.findViewById(R.id.lightButton);
         mN1FlashButton = (Button) view.findViewById(R.id.N1FlashButton);
         mN2FlashButton = (Button) view.findViewById(R.id.N2FlashButton);
-        uppdateLightSensorValuesButton = (Button) view.findViewById(R.id.uppdate_light_sensor_values);
+        downloadDataButton = (Button) view.findViewById(R.id.downloadDataButton);
+        updateLightSensorValuesButton = (Button) view.findViewById(R.id.uppdate_light_sensor_values);
+
         messageView = (TextView) view.findViewById(R.id.message_view);
         lightSensorValueView =(TextView) view.findViewById(R.id.lightSensorValue);
         potSensorValueView =(TextView) view.findViewById(R.id.potSensorValue);
-        downloadDataButton = (Button) view.findViewById(R.id.downloadDataButton);
+
         progPotToggleButton = (ToggleButton) view.findViewById(R.id.progPotValueToggle);
+
         progValueEditText = (EditText) view.findViewById(R.id.progValText);
     }
 
@@ -189,22 +165,12 @@ public class BluetoothChatFragment extends Fragment {
      */
 
     private void setupChat() {
-        //Log.d(TAG, "setupChat()");
-
         // Initialize the array adapter for the conversation thread
         mConversationArrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.message);
 
-        //mConversationView.setAdapter(mConversationArrayAdapter);
-
-        // Initialize the compose field with a listener for the return key
-        //mOutEditText.setOnEditorActionListener(mWriteListener);
-
-
-        // Initialize the send button with a listener that for click events
+        //
         mFlashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
-
                 View view = getView();
                 if (null != view) {
                     sendMessage((byte)Constants.FLASH,(byte)Constants.LED3);
@@ -214,7 +180,6 @@ public class BluetoothChatFragment extends Fragment {
         });
         mLightButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
                 View view = getView();
                 if (null != view) {
                     sendMessage((byte)Constants.FLASH,(byte)Constants.LED2);
@@ -223,7 +188,6 @@ public class BluetoothChatFragment extends Fragment {
         });
         mN1FlashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
                 View view = getView();
                 if (null != view) {
                     sendMessage((byte)Constants.CLEARMEMORY,(byte)Constants.NODE1);
@@ -232,7 +196,6 @@ public class BluetoothChatFragment extends Fragment {
         });
         mN2FlashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
                 View view = getView();
                 if (null != view) {
                     sendMessage((byte)Constants.BUSSIGNAL,(byte)Constants.NODE2);
@@ -240,47 +203,16 @@ public class BluetoothChatFragment extends Fragment {
             }
         });
 
-        uppdateLightSensorValuesButton.setOnClickListener(new View.OnClickListener() {
+        updateLightSensorValuesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
                 View view = getView();
                 if (null != view) {
-                    sendMessage((byte)Constants.LIGHTSENSVAL,(byte)Constants.REQ);
-                    try {
-                        Thread.sleep(4000);
-                    } catch(InterruptedException ex) {
-                        Thread.currentThread().interrupt();
-                    }
-                    sendMessage((byte)Constants.POTVAL, (byte)Constants.REQ);
-                    if(progPotToggleButton.isChecked())
-                    {
-                        int x =0;
-                        try {
-                            x = Integer.parseInt(progValueEditText.getText().toString());
-                            if(x>=0 && x<256)
-                                sendMessage((byte)Constants.PROGVAL,(byte)x);
-                            try {
-                                Thread.sleep(4000);
-                            } catch(InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                                sendMessage((byte)Constants.USEPOT,(byte)Constants.NO);
-                        } catch (NumberFormatException e) {
-                            messageView.append("int för helvete");
-                        }
-
-
-                    }else
-                        sendMessage((byte)Constants.USEPOT,(byte)Constants.YES);
-
-
-
+                    updateLightSensorValues();
                 }
             }
         });
         downloadDataButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
                 View view = getView();
                 if (null != view)
                 {
@@ -332,24 +264,9 @@ public class BluetoothChatFragment extends Fragment {
 
             // Reset out string buffer to zero and clear the edit text field
             mOutStringBuffer.setLength(0);
-           // mOutEditText.setText(mOutStringBuffer);
         }
     }
 
-    /**
-     * The action listener for the EditText widget, to listen for the return key
-     */
-    private TextView.OnEditorActionListener mWriteListener
-            = new TextView.OnEditorActionListener() {
-        public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-            // If the action is a key-up event on the return key, send the message
-            if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
-                String message = view.getText().toString();
-                //sendMessage(message);
-            }
-            return true;
-        }
-    };
 
     /**
      * Updates the status on the action bar.
@@ -392,7 +309,7 @@ public class BluetoothChatFragment extends Fragment {
         @Override
         public void handleMessage(Message msg) {
             FragmentActivity activity = getActivity();
-            boolean startMemoryRead= true;
+
 
             switch (msg.what) {
                 case Constants.MESSAGE_STATE_CHANGE:
@@ -418,69 +335,10 @@ public class BluetoothChatFragment extends Fragment {
                     break;
                 case Constants.MESSAGE_READ:
                     byte[] readBuf = (byte[]) msg.obj;
-                    // construct a string from the valid bytes in the buffer
-                    String readMessage = new String(readBuf, 0, msg.arg1);
                     int[] tmp= new int[4];
                     for (int i=0; i<4; i++)
-                    {
                         tmp[i] = readBuf[i] & 0xff;
-                    }
-                    /*messageView.append(Integer.toString(tmp[0])+" ");
-                    messageView.append(Integer.toString(tmp[1])+" ");
-                    messageView.append(Integer.toString(tmp[2])+" ");
-                    messageView.append(Integer.toString(tmp[3])+" ");
-                    Log.d("CREATION", Integer.toString(tmp[0])+" "+Integer.toString(tmp[1])+" "+Integer.toString(tmp[2])+" "+Integer.toString(tmp[3])+" ");
-                    */
-
-
-                    if(readBuf[0]==Constants.STARTCHAR && readBuf[3]==Constants.ENDCHAR)
-                    {
-
-                        switch (readBuf[1]) {
-                            case Constants.LIGHTSENSVAL:
-                                messageView.append("Ljussensorvärde är"+ tmp[2]  + "\n");
-                                lightSensorValueView.setText(Integer.toString(tmp[2]));
-                                break;
-                            case Constants.POTVAL:
-                                messageView.append("Potentiometervärde är"+ tmp[2]  + "\n");
-                                potSensorValueView.setText(Integer.toString(tmp[2]));
-                                break;
-                            case Constants.MEMVAL:
-                                //Log.d("CREATION", "Memval:"+tmp[2]);
-                                dataStream.add(tmp[2]);
-                                /*
-                                        dataPoint[counter]=tmp[2];
-                                        counter++;
-                                    if (counter == 10)
-                                    {
-                                        int[] tmpList = new int[10];
-                                        for(int i =0; i<10;i++) {
-                                            tmpList[i] = dataPoint[i];
-                                          //  Log.d("CREATION", "DataPoint" + dataPoint[i]);
-                                        }
-                                        dataList.add(tmpList);
-                                        counter =0;
-                                    }
-    */
-                                break;
-                            case Constants.READMEMORY:
-                                switch (tmp[2])
-                                {
-                                    case Constants.BEGIN:
-                                        startMemoryRead = true;
-                                        messageView.append("Börjar läsa data");
-                                        break;
-                                    case Constants.DONE:
-                                        startMemoryRead = false;
-                                        messageView.append("läst klart data");
-                                        GraphActivity.updateData(dataStream);
-                                        break;
-
-                                }
-
-                        }
-                    }
-                    mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    packetHandler(tmp);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
@@ -572,6 +430,80 @@ public class BluetoothChatFragment extends Fragment {
             }
         }
         return false;
+    }
+    /**
+        Sends requests for light sensor value and programmed. If the progPotToggleButton is on
+        PROGVAL,VALUE is sent otherwise USEPOT,YES is sent.
+     */
+    private void updateLightSensorValues()
+    {
+        sendMessage((byte)Constants.LIGHTSENSVAL,(byte)Constants.REQ);
+        try {
+            Thread.sleep(4000);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        sendMessage((byte)Constants.POTVAL, (byte)Constants.REQ);
+        if(progPotToggleButton.isChecked())
+        {
+            int x =0;
+            try {
+                x = Integer.parseInt(progValueEditText.getText().toString());
+                if(x>=0 && x<256)
+                    sendMessage((byte)Constants.PROGVAL,(byte)x);
+                try {
+                    Thread.sleep(4000);
+                } catch(InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                sendMessage((byte)Constants.USEPOT,(byte)Constants.NO);
+            } catch (NumberFormatException e) {
+                messageView.append("int för helvete");
+            }
+        }else
+            sendMessage((byte)Constants.USEPOT,(byte)Constants.YES);
+
+    }
+
+    /**
+     * Handles incoming data from RPI
+     * @param packet
+     */
+    private void packetHandler(int[] packet)
+    {
+        boolean startMemoryRead= true;
+        if(packet[0]==Constants.STARTCHAR && packet[3]==Constants.ENDCHAR)
+        {
+
+            switch (packet[1]) {
+                case Constants.LIGHTSENSVAL:
+                    messageView.append("Ljussensorvärde är"+ packet[2]  + "\n");
+                    lightSensorValueView.setText(Integer.toString(packet[2]));
+                    break;
+                case Constants.POTVAL:
+                    messageView.append("Potentiometervärde är"+ packet[2]  + "\n");
+                    potSensorValueView.setText(Integer.toString(packet[2]));
+                    break;
+                case Constants.MEMVAL:
+                    dataStream.add(packet[2]);
+                    break;
+                case Constants.READMEMORY:
+                    switch (packet[2])
+                    {
+                        case Constants.BEGIN:
+                            startMemoryRead = true;
+                            messageView.append("Börjar läsa data");
+                            break;
+                        case Constants.DONE:
+                            startMemoryRead = false;
+                            messageView.append("läst klart data");
+                            GraphActivity.updateData(dataStream);
+                            break;
+
+                    }
+
+            }
+        }
     }
 
 }

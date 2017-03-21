@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -16,7 +15,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Activity responsible for displaying received data
+ */
+
 public class GraphActivity extends Activity {
+
     private static LineGraphSeries<DataPoint> batterySeries;
     private static GraphView batteryGraph;
 
@@ -52,6 +56,11 @@ public class GraphActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Updates the graphs with the data from dataStream
+     * @param dataStream
+     */
     public static void updateData(ArrayList<Integer> dataStream)
     {
         if(batterySeries != null)
